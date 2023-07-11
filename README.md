@@ -36,9 +36,26 @@ customElements.define("my-paragraph", MyParagraph, {extends:"p"})
 <!-- Result -->
 <p>My Custom Paragraph</p>
 ```
+### Como criar uma tag
+```javascript
+class HelloWorld extends HTMLElement {
+    constructor(){
+        super();
+        this.innerText = "My Custom Paragraph"
+    }
+}
+// register tag
+customElements.define("my-paragraph", MyParagraph, {extends:"p"})
+```
 
+```html
+<!-- Tag -->
+<p is="my-paragraph"></p>
 
-<iframe width="100%" height="300" src="https://jsfiddle.net/techmista/d1ne6kby/7/embedded/" frameborder="0"></iframe>
+<!-- Result -->
+<p>My Custom Paragraph</p>
+```
+
 ### Exemplos
 - Exemplo 1: Estendendo um elemento existente
 - Exemplo 2: Criando o seu proprio Elemento HTML
