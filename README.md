@@ -24,10 +24,77 @@ Nesse exemplo, usaremos uma tag table(tabela) para que o elemento realize uma re
 ```javascript
 // main.js
 
+class MyPostTable extends HTMLTableElement{
+    constructor() {
+        super();
+        this.init();
+        this.render();
+    }
+
+    init() {
+        this.thead = document.createElement('thead');
+        this.append(this.thead);
+
+        this.tbody = document.createElement('tbody');
+        this.append(this.tbody);
+    }
+
+    render(){
+        this.thead.innerHTML = `<tr><th>ID</th><th>Title</th></tr>`
+        this.request().then(
+            (json)=>{
+                for (const i in json) {
+                    this.tbody.innerHTML +=  `<tr><td>${json[i]["id"]}</td><td>${json[i]["title"]}</td></tr>`
+                }
+
+            }
+        )
+    }
+    
+    async request(){
+        const url = this.getAttribute("data-url");
+        let resp = await fetch(url)
+        return resp.json();
+    }
+
+}
+
+customElements.define('my-post-table', MyPostTable, {extends:'table'})
 ```
 
 ```html
 <!-- index.html -->
 
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    table {
+        border: 1px solid #eee;
+    }
 
+    table th {
+        text-align: center;
+    }
+
+    tbody tr:nth-child(odd) {
+        background-color: aliceblue;
+    }
+
+    tbody td:nth-child(odd) {
+        text-align: center;
+    }
+    tbody td:nth-child(even) {
+        text-transform: uppercase;
+    }
+
+</style>
+<table is="my-post-table" data-url="https://jsonplaceholder.typicode.com/posts"></table>
+<script src="main.js" type="module"></script>
+</body>
+</html>
 ```
