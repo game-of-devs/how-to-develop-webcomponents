@@ -27,16 +27,11 @@ URL do exemplo: https://game-of-devs.github.io/how-to-develop-webcomponents/exem
 class MyPostTable extends HTMLTableElement{
     constructor() {
         super();
-        this.init();
-        this.render();
-    }
-
-    init() {
         this.thead = document.createElement('thead');
         this.append(this.thead);
-
         this.tbody = document.createElement('tbody');
         this.append(this.tbody);
+        this.render();
     }
 
     render(){
@@ -50,7 +45,7 @@ class MyPostTable extends HTMLTableElement{
             }
         )
     }
-    
+
     async request(){
         const url = this.getAttribute("data-url");
         let resp = await fetch(url)
@@ -58,7 +53,6 @@ class MyPostTable extends HTMLTableElement{
     }
 
 }
-
 customElements.define('my-post-table', MyPostTable, {extends:'table'})
 ```
 
