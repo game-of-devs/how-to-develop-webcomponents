@@ -19,7 +19,7 @@ Apartir do ES6 é possivel estender classes javascritp para criar elementos cust
 
 ### Exemplo 1: Estendendo um elemento existente
 Nesse exemplo, usaremos uma tag table(tabela) para que o elemento realize uma requisição na API publica https://jsonplaceholder.typicode.com/posts para listar o titulo dos posts, colocando o id e o titulo ao lado.
-
+URL do exemplo: https://game-of-devs.github.io/how-to-develop-webcomponents/exemplos/estendendo-web-component/
 
 ```javascript
 // main.js
@@ -63,38 +63,5 @@ customElements.define('my-post-table', MyPostTable, {extends:'table'})
 ```
 
 ```html
-<!-- index.html -->
-
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<style>
-    table {
-        border: 1px solid #eee;
-    }
-
-    table th {
-        text-align: center;
-    }
-
-    tbody tr:nth-child(odd) {
-        background-color: aliceblue;
-    }
-
-    tbody td:nth-child(odd) {
-        text-align: center;
-    }
-    tbody td:nth-child(even) {
-        text-transform: uppercase;
-    }
-
-</style>
 <table is="my-post-table" data-url="https://jsonplaceholder.typicode.com/posts"></table>
-<script src="main.js" type="module"></script>
-</body>
-</html>
 ```
