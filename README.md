@@ -30,8 +30,13 @@ customElements.define("my-paragraph", MyParagraph, {extends:"p"})
 ```
 
 ```html
+<!-- Tag -->
 <p is="my-paragraph"></p>
+
+<!-- Result -->
+<p>My Custom Paragraph</p>
 ```
+
 
 <iframe width="100%" height="300" src="https://jsfiddle.net/techmista/d1ne6kby/7/embedded/" frameborder="0"></iframe>
 ### Exemplos
