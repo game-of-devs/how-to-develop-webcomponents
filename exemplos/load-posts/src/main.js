@@ -15,21 +15,23 @@ class MyPostTable extends HTMLTableElement {
     }
 
     render() {
-        this._request(this._populate)
+        this._request(this._populate(this.tbody))
     }
 
-    _populate(json) {
-        for (const i in json) {
-            this.tbody.innerHTML += `<tr><td>${json[i]["id"]}</td><td>${json[i]["title"]}</td></tr>`
+    _populate(tbody) {
+        return (json)=>{
+            for (const i in json) {
+                tbody.innerHTML += `<tr><td>${json[i]["id"]}</td><td>${json[i]["title"]}</td></tr>`
+            }
         }
     }
 
     async _request(callback) {
         const url = this.getAttribute("data-url");
         let resp = await fetch(url)
-        return resp.json().then(callback);
+        resp.json().then(callback);
     }
 
 }
 
-customElements.define('my-post-table', MyPostTable, {extends: 'table'})
+customElements.define('load-posts', MyPostTable, {extends: 'table'})
