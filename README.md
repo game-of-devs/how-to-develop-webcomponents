@@ -1,1 +1,1 @@
-# how-to-develop-webcomponents
+# How to develop webcomponents
