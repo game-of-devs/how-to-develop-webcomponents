@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    table {
+        border: 1px solid #eee;
+    }
+
+    table th {
+        text-align: center;
+    }
+
+    tbody tr:nth-child(odd) {
+        background-color: aliceblue;
+    }
+
+    tbody td:nth-child(odd) {
+        text-align: center;
+    }
+    tbody td:nth-child(even) {
+        text-transform: uppercase;
+    }
+
+</style>
+<table is="my-post-table" data-url="https://jsonplaceholder.typicode.com/posts"></table>
+<script src="main.js" type="module"></script>
+</body>
+</html>
