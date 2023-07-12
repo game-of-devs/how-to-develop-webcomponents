@@ -46,7 +46,7 @@ class HelloWorldParagraph extends HTMLElement {
     }
 }
 // register tag
-customElements.define("hello-world", HelloWorldParagraph, {extends:"p"})
+customElements.define("hello-world", HelloWorldParagraph)
 ```
 
 ```html
