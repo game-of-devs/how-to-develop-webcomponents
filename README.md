@@ -38,22 +38,23 @@ customElements.define("my-paragraph", MyParagraph, {extends:"p"})
 ```
 ### Como criar uma tag
 ```javascript
-class HelloWorld extends HTMLElement {
+class HelloWorldParagraph extends HTMLElement {
     constructor(){
         super();
-        this.innerText = "My Custom Paragraph"
+        let name = this.getAttribute("name") ? `${this.getAttribute("name")}` : "";
+        this.innerText = `Hello World${name}!`;
     }
 }
 // register tag
-customElements.define("my-paragraph", MyParagraph, {extends:"p"})
+customElements.define("hello-world", HelloWorldParagraph, {extends:"p"})
 ```
 
 ```html
 <!-- Tag -->
-<p is="my-paragraph"></p>
+<hello-world name="Fulano"></hello-world>
 
 <!-- Result -->
-<p>My Custom Paragraph</p>
+<p>Hello World Fulano!</p>
 ```
 
 ### Exemplos
