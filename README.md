@@ -57,5 +57,5 @@ customElements.define("my-paragraph", MyParagraph, {extends:"p"})
 ```
 
 ### Exemplos
-- Exemplo 1: Estendendo um elemento existente
-- Exemplo 2: Criando o seu proprio Elemento HTML
+- [Exemplo 1: Estendendo um elemento existente](https://game-of-devs.github.io/how-to-develop-webcomponents/exemplos/load-posts/src/index.html)
+- [Exemplo 2: Criando o seu proprio Elemento HTML](https://game-of-devs.github.io/how-to-develop-webcomponents/exemplos/address-autocomplete/src/index.html)
